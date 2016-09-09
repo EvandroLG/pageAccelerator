@@ -1,3 +1,11 @@
+/*
+  * PageAccelerator - A solution to load web pages faster
+  * http://github.com/EasyFood/PageAccelerator
+  * author: Evandro Leopoldino Goncalves <evandrolgoncalves@gmail.com>
+  * http://github.com/EasyFood
+  * License: MIT
+*/
+
 (function(global) {
 
   var M = global._PageAccelerator = global._PageAccelerator || {};

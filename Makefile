@@ -7,7 +7,7 @@ jshint:
 	$(JSHINT) src/*.js
 
 minify:
-	$(UFLIFY) src/ajax.js src/page-accelerator.js -c -m page-accelerator.min.js
+	$(UFLIFY) src/ajax.js src/page-accelerator.js --mangle --output dist/page-accelerator.min.js
 	echo "minified!"
 
 deploy: jshint minify
