@@ -1,3 +1,11 @@
+/*
+  * PageAccelerator - A solution to load web pages faster
+  * http://github.com/EasyFood/PageAccelerator
+  * author: Evandro Leopoldino Goncalves <evandrolgoncalves@gmail.com>
+  * http://github.com/EasyFood
+  * License: MIT
+*/
+
 (function(global, doc) {
 
   var M = global._PageAccelerator = global._PageAccelerator || {};
@@ -48,8 +56,8 @@
 
       this._updateBodyAttributes(data);
 
-      var data = this._DOMParser(data.head);
-      doc.title = data.head.querySelector('title').innerText;
+      var dom = this._DOMParser(data.head);
+      doc.title = dom.head.querySelector('title').innerText;
 
       this.url = global.location.href;
       this.start();
@@ -61,7 +69,7 @@
         return M.ajax.get(element.href);
       });
 
-      Promise.all(requests).then(callback.bind(this));
+      global.Promise.all(requests).then(callback.bind(this));
     },
 
     _update: function(data) {
@@ -101,7 +109,7 @@
     start: function(callback) {
       this.callback = callback || this.callback;
       var that = this;
-      var links = doc.querySelectorAll('a:not([data-loadPage="false"])')
+      var links = doc.querySelectorAll('a:not([data-loadPage="false"])');
 
       links.forEach(function(element) {
         element.addEventListener('click', function(e) {

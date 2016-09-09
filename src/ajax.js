@@ -1,10 +1,10 @@
-(function(global, doc) {
+(function(global) {
 
   var M = global._PageAccelerator = global._PageAccelerator || {};
 
   M.ajax = {
     get: function(url) {
-      return new Promise(function(resolve, reject) {
+      return new global.Promise(function(resolve, reject) {
         var req = new XMLHttpRequest();
         req.open('GET', url, true);
 
@@ -26,4 +26,4 @@
     }
   };
 
-}(window, document));
+}(window));
