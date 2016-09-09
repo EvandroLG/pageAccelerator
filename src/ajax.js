@@ -1,0 +1,29 @@
+(function(global, doc) {
+
+  var M = global._PageAccelerator = global._PageAccelerator || {};
+
+  M.ajax = {
+    get: function(url) {
+      return new Promise(function(resolve, reject) {
+        var req = new XMLHttpRequest();
+        req.open('GET', url, true);
+
+        req.onload = function() {
+          if (req.status >= 200 && req.status < 400) {
+            resolve(req.response);
+            return;
+          }
+
+          reject(req.response);
+        };
+
+        req.onerror = function() {
+          reject(Error('Network Error'));
+        };
+
+        req.send();
+      });
+    }
+  };
+
+}(window, document));

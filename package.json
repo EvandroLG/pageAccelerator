@@ -1,0 +1,23 @@
+{
+  "name": "pageAccelerator",
+  "author": "evandrolg",
+  "repository": "Easyfood/pageAccelerator",
+  "version": "0.0.1",
+  "main": "src/page-accelerator.min.js",
+  "keywords": [
+    "pageAccelerator",
+    "accelerator",
+    "front-end",
+    "turbo-links",
+    "speed",
+    "ajax"
+  ],
+  "Licence": "MIT",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "jshint": "^2.9.3",
+    "mocha": "^3.0.2",
+    "mocha-phantomjs": "^4.1.0",
+    "uglify-js": "^2.7.3"
+  }
+}

@@ -1,24 +1,31 @@
 (function(global, doc) {
 
-  var M = global.EasyFood = global.EasyFood || {};
+  var M = global._PageAccelerator = global._PageAccelerator || {};
 
-  M.LoadPage = function() {
+  global.PageAccelerator = function() {
     this.url = doc.location.href;
     this.callback = function() {};
   };
 
-  M.LoadPage.prototype = {
-    _updateHistory: function(head, body) {
-      global.history.pushState({
-        head: head.innerHTML.trim(),
-        id: body.id,
-        className: body.className,
-        content: body.innerHTML.trim(),
-        namespace: body.attr('data-namespace'),
-        controller: body.attr('data-controller'),
-        action: body.attr('data-action'),
-      }, '', this.url);
+  global.PageAccelerator.prototype = {
+    _updateObject: function(obj, body) {
+      var attrs = body.attributes;
 
+      for (var i=0, size=attrs.length; i<size; i++) {
+        obj.attrs[attrs[i].name] = attrs[i].value;
+      }
+
+      return obj;
+    },
+
+    _updateHistory: function(head, body) {
+      var obj = this._updateObject({
+        head: head.innerHTML.trim(),
+        content: body.innerHTML.trim(),
+        attrs: {}
+      }, body);
+
+      global.history.pushState(obj, '', this.url);
       global.on('popstate', this._updateBody.bind(this));
     },
 
@@ -27,17 +34,22 @@
       return parser.parseFromString(data, 'text/html');
     },
 
+    _updateBodyAttributes: function(data) {
+      Object.keys(data).forEach(function(key) {
+        var value = data[key];
+        doc.body.attr(key, value);
+      });
+    },
+
     _updateBody: function(e) {
       var data = e.state;
       doc.body.id = data.id;
-      doc.body.className = data.className;
-      doc.body.attr('data-namespace', data.namespace);
-      doc.body.attr('data-controller', data.controller);
-      doc.body.attr('data-action', data.action);
       doc.body.innerHTML = data.content;
 
+      this._updateBodyAttributes(data);
+
       var data = this._DOMParser(data.head);
-      doc.title = data.head.find('title').innerText;
+      doc.title = data.head.querySelector('title').innerText;
 
       this.url = global.location.href;
       this.start();
@@ -45,7 +57,7 @@
     },
 
     _loadStyles: function(head, callback) {
-      var requests = head.querySelectorAll('link[rel="stylesheet"]').map(function(element) {
+      var requests = [].map.call(head.querySelectorAll('link[rel="stylesheet"]'), function(element) {
         return M.ajax.get(element.href);
       });
 
@@ -60,7 +72,7 @@
         var body = dom.body;
         doc.body = body;
         doc.head = head;
-        doc.title = head.find('title').innerText;
+        doc.title = head.querySelector('title').innerText;
 
         this._updateHistory(head, body);
         this.callback();
@@ -77,25 +89,25 @@
 
     _replaceHistory: function() {
       var body = doc.body;
+      var obj = this._updateObject({
+        head: doc.head.innerHTML.trim(),
+        content: body.innerHTML.trim(),
+        attrs: {}
+      }, body);
 
-      global.history.replaceState({
-        head: doc.head.innerHTML,
-        id: body.id,
-        className: body.className,
-        content: body.innerHTML,
-        namespace: body.attr('data-namespace'),
-        controller: body.attr('data-controller'),
-        action: body.attr('data-action')
-      }, '', this.url);
+      global.history.replaceState(obj, '', this.url);
     },
 
     start: function(callback) {
       this.callback = callback || this.callback;
       var that = this;
+      var links = doc.querySelectorAll('a:not([data-loadPage="false"])')
 
-      doc.findAll('a:not([data-loadPage="false"])').on('click', function(e) {
-        e.preventDefault();
-        that._onClick.call(that, this);
+      links.forEach(function(element) {
+        element.addEventListener('click', function(e) {
+          e.preventDefault();
+          that._onClick.call(that, this);
+        }, false);
       });
 
       this._replaceHistory();
