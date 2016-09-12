@@ -3,7 +3,7 @@
   "author": "evandrolg",
   "repository": "Easyfood/pageAccelerator",
   "version": "0.0.1",
-  "main": "src/page-accelerator.min.js",
+  "main": "dist/page-accelerator.min.js",
   "keywords": [
     "pageAccelerator",
     "accelerator",
