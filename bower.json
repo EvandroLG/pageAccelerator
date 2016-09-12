@@ -13,7 +13,9 @@
     "front-end",
     "turbo-links",
     "speed",
-    "ajax"
+    "fast",
+    "ajax",
+    "performace"
   ],
   "ignore": [
     "**/.*",

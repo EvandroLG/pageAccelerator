@@ -10,7 +10,9 @@
     "front-end",
     "turbo-links",
     "speed",
-    "ajax"
+    "fast",
+    "ajax",
+    "performace"
   ],
   "Licence": "MIT",
   "devDependencies": {
