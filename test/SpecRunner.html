@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Specs - PageAccelerator</title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <link rel="stylesheet" href="../node_modules/mocha/mocha.css">
+  </head>
+  <body>
+    <div id="mocha"></div>
+    <div id="container-test" style="display: none;">
+      <a href="#" id="link_1">mock 1</a>
+      <a href="#" id="link_2" data-pageAccelerator="false">mock 2</a>
+    </div>
+    <script src="../src/ajax.js"></script>
+    <script src="../src/page-accelerator.js"></script>
+    <script src="../node_modules/mocha/mocha.js"></script>
+    <script src="../node_modules/chai/chai.js"></script>
+    <script>
+      mocha.ui('bdd');
+      mocha.reporter('html');
+      var expect = chai.expect;
+    </script>
+    <script src="spec.js"></script>
+    <script>
+      if (window.mochaPhantomJS) { mochaPhantomJS.run(); }
+      else { mocha.run(); }
+    </script>
+  </body>
+</html>

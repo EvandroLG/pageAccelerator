@@ -10,12 +10,12 @@
 
   var M = global._PageAccelerator = global._PageAccelerator || {};
 
-  global.PageAccelerator = function() {
+  M.PageAccelerator = function() {
     this.url = doc.location.href;
     this.callback = function() {};
   };
 
-  global.PageAccelerator.prototype = {
+  M.PageAccelerator.prototype = {
     _updateObject: function(obj, body) {
       var attrs = body.attributes;
 
@@ -109,7 +109,7 @@
     start: function(callback) {
       this.callback = callback || this.callback;
       var that = this;
-      var links = doc.querySelectorAll('a:not([data-loadPage="false"])');
+      var links = doc.querySelectorAll('a:not([data-pageAccelerator="false"])');
 
       links.forEach(function(element) {
         element.addEventListener('click', function(e) {
@@ -120,6 +120,10 @@
 
       this._replaceHistory();
     }
+  };
+
+  global.pageAccelerator = function(callback) {
+    new M.PageAccelerator().start(callback);
   };
 
 }(window, document));
