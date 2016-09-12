@@ -1,0 +1,24 @@
+{
+  "name": "page-accelerator",
+  "version": "0.0.1",
+  "homepage": "https://github.com/Easyfood/pageAccelerator",
+  "authors": [
+    "evandrolg"
+  ],
+  "description": "A very light solution to load web pages faster",
+  "main": "dist/page-accelerator.min.js",
+  "keywords": [
+    "pageAccelerator",
+    "accelerator",
+    "front-end",
+    "turbo-links",
+    "speed",
+    "ajax"
+  ],
+  "ignore": [
+    "**/.*",
+    "test",
+    "*.md"
+  ],
+  "license": "MIT"
+}
