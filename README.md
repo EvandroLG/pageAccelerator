@@ -38,4 +38,5 @@ Just it and PageAccelerator was already following the web application links.
 For links that you wouldn't like to be followed, you need simply add `data-pageAccelerator="false"`.
 
 ## API
-- PageAccelerator.prototype.`start([callback])` initiliaze method, it also receive a optional callback that will be called whenever a new page has loaded
+- PageAccelerator.prototype.`start([callback])`
+Initiliaze method, it also receive a optional callback that will be called whenever a new page has loaded
