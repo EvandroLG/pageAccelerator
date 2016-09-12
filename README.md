@@ -1,13 +1,13 @@
 # pageAccelerator
 A very light solution to load web pages faster.
 
-# How does it work?
-It's an agnostic library that uses ajax and pushState to deliver a faster navigation experience. pageAccelerator is a very light version of turbolinks and pajx (our minify file has 2.2KB!). Basically what it does is follow every link in your application and each click it loads the page in background and replaces the content correctly, keeping the real datas from body and head, updating the title.
-
 ## Browser Support
 ![Chrome](https://raw.github.com/alrra/browser-logos/master/chrome/chrome_48x48.png) | ![Firefox](https://raw.github.com/alrra/browser-logos/master/firefox/firefox_48x48.png) | ![IE](https://raw.github.com/alrra/browser-logos/master/internet-explorer/internet-explorer_48x48.png) | ![Opera](https://raw.github.com/alrra/browser-logos/master/opera/opera_48x48.png) | ![Safari](https://raw.github.com/alrra/browser-logos/master/safari/safari_48x48.png)
 --- | --- | --- | --- | --- |
 5.0+ ✔ | 4.0+ ✔ | 10+ ✔ | 11.5 ✔ | 5.0+ ✔ |
+
+# How does it work?
+It's an agnostic library that uses ajax and pushState to deliver a faster navigation experience. pageAccelerator is a very light version of turbolinks and pajx (our minify file has 2.2KB!). Basically what it does is follow every link in your application and each click it loads the page in background and replaces the content correctly, keeping the real datas from body and head, updating the title.
 
 ## Installation
 To install pageAccelerator, execute:
