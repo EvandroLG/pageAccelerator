@@ -1,5 +1,5 @@
 # PageAccelerator
-A solution to load web pages faster
+A very light solution to load web pages faster.
 
 # How does it work?
 It's an agnostic library that uses ajax and pushState to deliver a faster navigation experience. PageAccelerator is a very light version of turbolinks and pajx (our minify file has 2.2KB!). Basically what it does is follow every link in your application and each click it loads the page in background and replaces the content correctly, keeping the real datas from body and head, updating the title.
@@ -33,4 +33,9 @@ Then you need to instantiate the object and call the `start` method, such as the
   p.start();
 ```
 
-Just it and PageAccelerator was already following the application links.
+Just it and PageAccelerator was already following the web application links.
+
+For links that you wouldn't like to be followed, you need simply add `data-pageAccelerator="false"`.
+
+## API
+- PageAccelerator.prototype.`start([callback])` initiliaze method, it also receive a optional callback that will be called whenever a new page has loaded
