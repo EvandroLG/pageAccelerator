@@ -32,11 +32,8 @@ Then you need to instantiate the object and call the `start` method, such as the
   var p = new PageAccelerator();
   p.start();
 ```
+*`start` is the initialize method and it also can receive a callback as a parameter - this callback will be called whenever a new page has loaded.
 
 Just it and PageAccelerator was already following the web application links.
 
 For links that you wouldn't like to be followed, you need simply add `data-pageAccelerator="false"`.
-
-## API
-- PageAccelerator.prototype.`start([callback])`
-Initiliaze method, it also receive a optional callback that will be called whenever a new page has loaded
