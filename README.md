@@ -7,7 +7,7 @@ A very light solution to load web pages faster.
 5.0+ ✔ | 4.0+ ✔ | 10+ ✔ | 11.5 ✔ | 5.0+ ✔ |
 
 # How does it work?
-It's an agnostic library that uses ajax and pushState to deliver a faster navigation experience. pageAccelerator is a very light version of turbolinks and pajx (our minify file has 2.2KB!). Basically what it does is follow every link in your application and each click it loads the page in background and replaces the content correctly, keeping the real datas from body and head, updating the title.
+It's an agnostic library that uses ajax and pushState to deliver a faster navigation experience. pageAccelerator is a very light version of [turbolinks](https://github.com/turbolinks/turbolinks) and [pjax](https://github.com/defunkt/jquery-pjax) (our minify file has 2.2KB!). Basically what it does is follow every link in your application and each click it loads the page in background and replaces the content correctly, keeping the real datas from body and head, updating the title.
 
 ## Installation
 To install pageAccelerator, execute:
