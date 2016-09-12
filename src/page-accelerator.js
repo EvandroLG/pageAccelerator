@@ -111,7 +111,7 @@
       var that = this;
       var links = doc.querySelectorAll('a:not([data-pageAccelerator="false"])');
 
-      links.forEach(function(element) {
+      [].forEach.call(links, function(element) {
         element.addEventListener('click', function(e) {
           e.preventDefault();
           that._onClick.call(that, this);
