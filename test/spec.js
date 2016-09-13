@@ -67,6 +67,10 @@
       it('should not call ajax method when user requests a new page by a link with data-pageAccelerator="false"', function() {
         verifyAjaxWasCalled(_find('#link_2'), 'false');
       });
+
+      it('should not call ajax method when user requests a new page on an external domain', function() {
+        verifyAjaxWasCalled(_find('#link_3'), 'false');
+      });
     });
 
   });
