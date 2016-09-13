@@ -51,10 +51,8 @@
 
     _updateBody: function(e) {
       var data = e.state;
-      doc.body.id = data.id;
+      this._updateBodyAttributes(data.attrs);
       doc.body.innerHTML = data.content;
-
-      this._updateBodyAttributes(data);
 
       var dom = this._DOMParser(data.head);
       doc.title = dom.head.querySelector('title').innerText;
