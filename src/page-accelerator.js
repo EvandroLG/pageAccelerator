@@ -110,6 +110,11 @@
       var links = doc.querySelectorAll('a:not([data-pageAccelerator="false"])');
 
       [].forEach.call(links, function(element) {
+        if (element.hostname !== window.location.hostname ||
+            element.protocol !== window.location.protocol) {
+          return;
+        }
+
         element.addEventListener('click', function(e) {
           e.preventDefault();
           that._onClick.call(that, this);
