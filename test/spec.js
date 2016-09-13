@@ -6,6 +6,19 @@
       return doc.querySelector(value);
     };
 
+    var _click = function(el) {
+      var ev = document.createEvent("MouseEvent");
+      ev.initMouseEvent(
+          "click",
+          true /* bubble */, true /* cancelable */,
+          window, null,
+          0, 0, 0, 0, /* coordinates */
+          false, false, false, false, /* modifier keys */
+          0 /*left*/, null
+      );
+      el.dispatchEvent(ev);
+    };
+
     describe('instance', function() {
       it('should exists pageAccelerator function', function() {
         expect(pageAccelerator).to.be.an('function');
@@ -42,7 +55,7 @@
         };
 
         pageAccelerator();
-        element.click();
+        _click(element);
 
         expect(wasCalled).to.be[expected];
       };
