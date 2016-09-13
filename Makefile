@@ -11,7 +11,7 @@ test_js:
 	$(MOCHA_PHANTOM) test/SpecRunner.html
 
 minify:
-	$(UFLIFY) src/ajax.js src/page-accelerator.js --mangle --output dist/page-accelerator.min.js
+	$(UGLIFY) src/ajax.js src/page-accelerator.js --mangle --output dist/page-accelerator.min.js
 	echo "minified!"
 
 deploy: jshint minify
