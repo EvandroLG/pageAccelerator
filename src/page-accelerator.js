@@ -34,7 +34,7 @@
       }, body);
 
       global.history.pushState(obj, '', this.url);
-      global.on('popstate', this._updateBody.bind(this));
+      global.addEventListener('popstate', this._updateBody.bind(this), false);
     },
 
     _DOMParser: function(data) {
