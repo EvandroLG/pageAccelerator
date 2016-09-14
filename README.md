@@ -13,13 +13,13 @@ It's an agnostic library that uses ajax and pushState to deliver a faster naviga
 To install pageAccelerator, execute:
 
 ```shell
-  npm install page-accelerator
+  npm install page-accelerator --save
 ```
 
 or
 
 ```shell
-  bower install page-accelerator
+  bower install page-accelerator --save
 ```
 
 Or simply use the minified file from the `dist/` directory.
