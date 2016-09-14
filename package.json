@@ -14,7 +14,7 @@
     "ajax",
     "performace"
   ],
-  "Licence": "MIT",
+  "license": "MIT",
   "devDependencies": {
     "chai": "^3.5.0",
     "jshint": "^2.9.3",
