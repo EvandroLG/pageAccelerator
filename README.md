@@ -48,7 +48,7 @@ Just call it and pageAccelerator was already following the web application links
 For links that you don't want to be followed, you need simply add `data-pageAccelerator="false"`.
 
 ## Team
-pageAccelerator was made with love by these people and a bunch of [awesome contributors](https://github.com/EasyFood/pageAccelerator/graphs/contributors).
+pageAccelerator was made with love by a bunch of [awesome contributors](https://github.com/EasyFood/pageAccelerator/graphs/contributors).
 
 | Author
 |:-:|:-:|
