@@ -7,3 +7,6 @@ notification:
   email:
     on_success: never
     on_failure: always
+
+script:
+  - make test_js
