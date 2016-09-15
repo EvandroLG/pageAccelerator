@@ -1,6 +1,7 @@
 # pageAccelerator
 [![Build
 Status](https://travis-ci.org/Easyfood/pageAccelerator.svg?branch=master)](https://travis-ci.org/Easyfood/pageAccelerator)
+
 A very light solution to load web pages faster.
 
 ## Browser Support
