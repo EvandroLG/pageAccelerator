@@ -43,9 +43,8 @@ Just call it and pageAccelerator was already following the web application links
 
 For links that you don't want to be followed, you need simply add `data-pageAccelerator="false"`.
 
-*Senna.js* was made with love by these people and a bunch of [awesome contributors](https://github.com/liferay/senna.js/graphs/contributors).
-
 ## Team
+pageAccelerator was made with love by these people and a bunch of [awesome contributors](https://github.com/EasyFood/pageAccelerator/graphs/contributors).
 | Author
 |:-:|:-:|
 |[![@evandrolg](https://avatars3.githubusercontent.com/u/444054?v=3&amp;s=96)](https://github.com/evandrolg)
