@@ -6,9 +6,24 @@
   * License: MIT
 */
 
-(function(global, doc) {
+(function(global, factory) {
 
-  var M = global._PageAccelerator = global._PageAccelerator || {};
+  /*global define: false*/
+  /*global exports: true*/
+  if (typeof exports === 'object' && exports) {
+    factory(exports); // CommonJS
+  } else if (typeof define === 'function' && define.amd) {
+    define(['exports'], factory); // AMD
+  } else {
+    factory(global); // <script>
+  }
+} (window, function(global) {
+
+  var isWindow = global === window;
+  var w = isWindow ? global : window;
+  var doc = document;
+
+  var M = w._PageAccelerator = w._PageAccelerator || {};
 
   M.PageAccelerator = function() {
     this.url = doc.location.href;
@@ -33,8 +48,8 @@
         attrs: {}
       }, body);
 
-      global.history.pushState(obj, '', this.url);
-      global.addEventListener('popstate', this._updateBody.bind(this), false);
+      w.history.pushState(obj, '', this.url);
+      w.addEventListener('popstate', this._updateBody.bind(this), false);
     },
 
     _DOMParser: function(data) {
@@ -57,7 +72,7 @@
       var dom = this._DOMParser(data.head);
       doc.title = dom.head.querySelector('title').innerText;
 
-      this.url = global.location.href;
+      this.url = w.location.href;
       this.start();
       this.callback();
     },
@@ -67,7 +82,7 @@
         return M.ajax.get(element.href);
       });
 
-      global.Promise.all(requests).then(callback.bind(this));
+      w.Promise.all(requests).then(callback.bind(this));
     },
 
     _update: function(data) {
@@ -82,7 +97,7 @@
 
         this._updateHistory(head, body);
         this.callback();
-        global.scrollTo(0, 0);
+        w.scrollTo(0, 0);
         this.start();
       }.bind(this));
     },
@@ -101,7 +116,7 @@
         attrs: {}
       }, body);
 
-      global.history.replaceState(obj, '', this.url);
+      w.history.replaceState(obj, '', this.url);
     },
 
     start: function(callback) {
@@ -110,8 +125,8 @@
       var links = doc.querySelectorAll('a:not([data-pageAccelerator="false"])');
 
       [].forEach.call(links, function(element) {
-        if (element.hostname !== global.location.hostname ||
-            element.protocol !== global.location.protocol) {
+        if (element.hostname !== w.location.hostname ||
+            element.protocol !== w.location.protocol) {
           return;
         }
 
@@ -129,4 +144,4 @@
     new M.PageAccelerator().start(callback);
   };
 
-}(window, document));
+}));
