@@ -60,7 +60,7 @@
     _updateBodyAttributes: function(data) {
       Object.keys(data).forEach(function(key) {
         var value = data[key];
-        doc.body.attr(key, value);
+        doc.body.setAttribute(key, value);
       });
     },
 
