@@ -13,7 +13,6 @@
       <a href="http://github.com" id="link_3">mock 3</a>
     </div>
     <script src="../src/ajax.js"></script>
-    <script src="../src/page-accelerator.js"></script>
     <script src="../node_modules/mocha/mocha.js"></script>
     <script src="../node_modules/chai/chai.js"></script>
     <script>
@@ -21,7 +20,21 @@
       mocha.reporter('html');
       var expect = chai.expect;
     </script>
-    <script src="spec.js"></script>
+
+    <!-- default tests -->
+    <script src="../src/page-accelerator.js"></script>
+    <script src="spec-default.js"></script>
+
+    <!-- commonjs and browserify -->
+    <script>
+      window.exports = {};
+    </script>
+    <script src="../src/page-accelerator.js"></script>
+    <script src="spec-commonjs.js"></script>
+
+    <script src="../src/page-accelerator.js"></script>
+    <script src="spec-amd.js"></script>
+
     <script>
       if (window.mochaPhantomJS) { mochaPhantomJS.run(); }
       else { mocha.run(); }
