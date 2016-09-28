@@ -71,6 +71,10 @@
       it('should not call ajax method when user requests a new page on an external domain', function() {
         verifyAjaxWasCalled(_find('#link_3'), 'false');
       });
+
+      it('should not call ajax method when user requests a new page by a link with href*="#"', function() {
+        verifyAjaxWasCalled(_find('#link_4'), 'false');
+      });
     });
 
   });
