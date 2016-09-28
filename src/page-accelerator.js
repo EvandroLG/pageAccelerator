@@ -126,7 +126,8 @@
 
       [].forEach.call(links, function(element) {
         if (element.hostname !== w.location.hostname ||
-            element.protocol !== w.location.protocol) {
+            element.protocol !== w.location.protocol ||
+            /#/.test(element.href)) {
           return;
         }
 
