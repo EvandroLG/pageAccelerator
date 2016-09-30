@@ -17,7 +17,7 @@
   } else {
     factory(global); // <script>
   }
-} (window, function(global) {
+} (this, function(global) {
 
   var isWindow = global === window;
   var w = isWindow ? global : window;
