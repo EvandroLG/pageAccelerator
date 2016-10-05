@@ -82,7 +82,7 @@
 
     _loadStyles: function(head, callback) {
       var requests = [].map.call(head.querySelectorAll('link[rel="stylesheet"]'), function(element) {
-        return M.ajax.get(element.href);
+        return M.ajax.get(element.getAttribute('href'));
       });
 
       w.Promise.all(requests).then(callback.bind(this));
