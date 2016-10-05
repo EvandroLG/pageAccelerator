@@ -27,7 +27,8 @@
 
   M.PageAccelerator = function() {
     this.url = doc.location.href;
-    this.callback = function() {};
+    this.beforeLoading = function() {};
+    this.afterLoading = function() {};
   };
 
   M.PageAccelerator.prototype = {
@@ -65,6 +66,8 @@
     },
 
     _updateBody: function(e) {
+      this.beforeLoading();
+
       var data = e.state;
       this._updateBodyAttributes(data.attrs);
       doc.body.innerHTML = data.content;
@@ -74,7 +77,7 @@
 
       this.url = w.location.href;
       this.start();
-      this.callback();
+      this.afterLoading();
     },
 
     _loadStyles: function(head, callback) {
@@ -96,13 +99,15 @@
         doc.title = head.querySelector('title').innerText;
 
         this._updateHistory(head, body);
-        this.callback();
+        this.afterLoading();
         w.scrollTo(0, 0);
         this.start();
       }.bind(this));
     },
 
     _onClick: function(element) {
+      this.beforeLoading();
+
       this.url = element.href;
       M.ajax.get(this.url).then(this._update.bind(this))
                           .catch(this._update.bind(this));
@@ -119,8 +124,10 @@
       w.history.replaceState(obj, '', this.url);
     },
 
-    start: function(callback) {
-      this.callback = callback || this.callback;
+    start: function(params) {
+      var obj = params || {};
+      this.beforeLoading = obj.beforeLoading || this.beforeLoading;
+      this.afterLoading = obj.afterLoading || this.afterLoading;
       var that = this;
       var links = doc.querySelectorAll('a:not([data-pageAccelerator="false"])');
 
@@ -141,8 +148,8 @@
     }
   };
 
-  global.pageAccelerator = function(callback) {
-    new M.PageAccelerator().start(callback);
+  global.pageAccelerator = function(params) {
+    new M.PageAccelerator().start(params);
   };
 
 }));
