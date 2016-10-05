@@ -41,11 +41,14 @@ Then you need to call the `pageAccelerator` function, such as the example bellow
   pageAccelerator();
 ```
 
-`pageAccelerator` can also receive a callback as a parameter - this callback will be called whenever a new page has loaded.
-
 Just call it and pageAccelerator was already following the web application links.
 
 For links that you don't want to be followed, you need simply add `data-pageAccelerator="false"`.
+
+## Parameters
+`pageAccelerator` can also receive an object as a parameter with the following options:
+* **beforeLoading** <code>function</code>: Will be called whenever a new page was requested by a click or the browser back
+* **afterLoading** <code>function</code>: Will be called whenever a new page has been loaded
 
 ## Team
 pageAccelerator was made with love by a bunch of [awesome contributors](https://github.com/EasyFood/pageAccelerator/graphs/contributors).
