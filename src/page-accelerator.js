@@ -29,6 +29,7 @@
     this.url = doc.location.href;
     this.beforeLoading = function() {};
     this.afterLoading = function() {};
+    this.metaKeyIsPressed = false;
   };
 
   M.PageAccelerator.prototype = {
@@ -140,8 +141,23 @@
 
         element.addEventListener('click', function(e) {
           e.preventDefault();
-          that._onClick.call(that, this);
+
+          if (!that.metaKeyIsPressed) {
+            that._onClick.call(that, this);
+          }
         }, false);
+      });
+
+      window.addEventListener('keydown', function(e) {
+        if (e.metaKey) {
+          that.metaKeyIsPressed = true;
+        }
+      });
+
+      window.addEventListener('keyup', function(e) {
+        if (e.metaKey) {
+          that.metaKeyIsPressed = false;
+        }
       });
 
       this._replaceHistory();

@@ -19,6 +19,19 @@
       el.dispatchEvent(ev);
     };
 
+    var _key = function(type, config) {
+      var ev = document.createEvent('Event');
+      var bubbles = true, cancellable = true;
+
+      ev.initEvent(type, bubbles, cancellable);
+
+      for (var key in config) {
+        ev[key] = config[key];
+      }
+
+      window.dispatchEvent(ev);
+    }
+
     describe('instance', function() {
       it('should exists pageAccelerator function', function() {
         expect(pageAccelerator).to.be.an('function');
@@ -38,6 +51,7 @@
     });
 
     describe('run', function() {
+      pageAccelerator();
 
       var verifyAjaxWasCalled = function(element, expected) {
         var wasCalled = false;
@@ -54,7 +68,6 @@
           }
         };
 
-        pageAccelerator();
         _click(element);
 
         expect(wasCalled).to.be[expected];
@@ -74,6 +87,16 @@
 
       it('should not call ajax method when user requests a new page by a link with href*="#"', function() {
         verifyAjaxWasCalled(_find('#link_4'), 'false');
+      });
+
+      it('should not call ajax method when link was clicked when meta key is pressed', function() {
+        _key('keydown', { metaKey: true });
+        verifyAjaxWasCalled(_find('#link_1'), 'false');
+      });
+
+      it('should call ajax method when link was clicked when meta key is released', function() {
+        _key('keyup', { metaKey: true });
+        verifyAjaxWasCalled(_find('#link_1'), 'true');
       });
     });
 
