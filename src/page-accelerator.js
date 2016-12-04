@@ -140,9 +140,8 @@
         }
 
         element.addEventListener('click', function(e) {
-          e.preventDefault();
-
           if (!that.metaKeyIsPressed) {
+            e.preventDefault();
             that._onClick.call(that, this);
           }
         }, false);
