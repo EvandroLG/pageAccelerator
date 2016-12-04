@@ -98,6 +98,16 @@
         _key('keyup', { metaKey: true });
         verifyAjaxWasCalled(_find('#link_1'), 'true');
       });
+
+      it('should not call ajax method when link was clicked when ctrl key is pressed', function() {
+        _key('keydown', { ctrlKey: true });
+        verifyAjaxWasCalled(_find('#link_1'), 'false');
+      });
+
+      it('should call ajax method when link was clicked when meta ctrl is released', function() {
+        _key('keyup', { ctrlKey: true });
+        verifyAjaxWasCalled(_find('#link_1'), 'true');
+      });
     });
 
   });

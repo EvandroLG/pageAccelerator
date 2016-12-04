@@ -149,13 +149,13 @@
       });
 
       window.addEventListener('keydown', function(e) {
-        if (e.metaKey) {
+        if (e.metaKey || e.ctrlKey) {
           that.metaKeyIsPressed = true;
         }
       });
 
       window.addEventListener('keyup', function(e) {
-        if (e.metaKey) {
+        if (e.metaKey || e.ctrlKey) {
           that.metaKeyIsPressed = false;
         }
       });
