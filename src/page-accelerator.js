@@ -126,6 +126,8 @@
     },
 
     _events: function() {
+      var that = this;
+
       global.addEventListener('keydown', function(e) {
         if (e.metaKey || e.ctrlKey) {
           that.metaKeyIsPressed = true;
@@ -144,7 +146,7 @@
       this.beforeLoading = obj.beforeLoading || this.beforeLoading;
       this.afterLoading = obj.afterLoading || this.afterLoading;
       var that = this;
-      var links = doc.querySelectorAll('a:not([data-pageAccelerator="false"])');
+      var links = doc.querySelectorAll('a:not([data-pageAccelerator="false"]):not([target=_blank])');
 
       [].forEach.call(links, function(element) {
         if (element.hostname !== w.location.hostname ||
