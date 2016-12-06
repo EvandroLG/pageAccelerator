@@ -125,6 +125,20 @@
       w.history.replaceState(obj, '', this.url);
     },
 
+    _events: function() {
+      global.addEventListener('keydown', function(e) {
+        if (e.metaKey || e.ctrlKey) {
+          that.metaKeyIsPressed = true;
+        }
+      });
+
+      global.addEventListener('keyup', function(e) {
+        if (e.metaKey || e.ctrlKey) {
+          that.metaKeyIsPressed = false;
+        }
+      });
+    },
+
     start: function(params) {
       var obj = params || {};
       this.beforeLoading = obj.beforeLoading || this.beforeLoading;
@@ -147,18 +161,7 @@
         }, false);
       });
 
-      window.addEventListener('keydown', function(e) {
-        if (e.metaKey || e.ctrlKey) {
-          that.metaKeyIsPressed = true;
-        }
-      });
-
-      window.addEventListener('keyup', function(e) {
-        if (e.metaKey || e.ctrlKey) {
-          that.metaKeyIsPressed = false;
-        }
-      });
-
+      this._events();
       this._replaceHistory();
     }
   };
