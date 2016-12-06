@@ -128,13 +128,13 @@
     _events: function() {
       var that = this;
 
-      global.addEventListener('keydown', function(e) {
+      w.addEventListener('keydown', function(e) {
         if (e.metaKey || e.ctrlKey) {
           that.metaKeyIsPressed = true;
         }
       });
 
-      global.addEventListener('keyup', function(e) {
+      w.addEventListener('keyup', function(e) {
         if (e.metaKey || e.ctrlKey) {
           that.metaKeyIsPressed = false;
         }
