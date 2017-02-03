@@ -12,7 +12,7 @@ A very light solution to load web pages faster.
 - Opera 11.5+
 - Safari 5.0+
 
-* For IE10+ you need to use some [polyfill](https://qa.polyfill.io/v2/docs/) to add support for Promises.
+** For IE10+ you need to use some [polyfill](https://qa.polyfill.io/v2/docs/) to add support for Promises.
 
 # How does it work?
 It's an agnostic library that uses ajax and pushState to deliver a faster navigation experience. pageAccelerator is a very light version of [turbolinks](https://github.com/turbolinks/turbolinks) and [pjax](https://github.com/defunkt/jquery-pjax) (our minfied file is just 2.2KB!). Basically what it does is follow every link in your application and each click it loads the page in background and replaces the content correctly, keeping the real datas from body and head, updating the title.
