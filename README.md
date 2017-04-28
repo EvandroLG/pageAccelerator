@@ -2,6 +2,7 @@
 [![Build
 Status](https://travis-ci.org/Easyfood/pageAccelerator.svg?branch=master)](https://travis-ci.org/Easyfood/pageAccelerator)
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/evandrolg/pageAccelerator?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![CDNJS](https://img.shields.io/cdnjs/v/page-accelerator.svg)](https://cdnjs.com/libraries/page-accelerator)
 
 A very light solution to load web pages faster.
 
