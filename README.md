@@ -58,8 +58,7 @@ For links that you don't want to be followed, you need simply add `data-pageAcce
 ## Team
 pageAccelerator was made with love by a bunch of [awesome contributors](https://github.com/EasyFood/pageAccelerator/graphs/contributors).
 
-| Author
-|:-:|:-:|
-|[![@evandrolg](https://avatars3.githubusercontent.com/u/444054?v=3&amp;s=96)](https://github.com/evandrolg)
-| [@evandrolg](https://github.com/evandrolg)
-
+## Author
+|[![@evandrolg](https://avatars3.githubusercontent.com/u/444054?v=3&amp;s=96)](https://github.com/evandrolg)|
+|:---:|
+|[@evandrolg](http://www.github.com/evandrolg)|
